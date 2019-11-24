@@ -21,25 +21,27 @@ public class PreInPosTraversal {
 			  if(head == null) {
 				  return ;
 			  }
-			  System.out.println(head.vlaue+" ");
+			  System.out.print(head.vlaue+" ");
 			  preOrderRecur(head.left);
 			  preOrderRecur(head.right);
 		  }
+		  
 		 public static void inOrderRecur(Node head) {
 			 if(head == null) {
 				 return;
 			 }
 			 inOrderRecur(head.left);
-			 System.out.println(head.vlaue);
+			 System.out.print(head.vlaue);
 			 inOrderRecur(head.right);
 		 }
+		 
 		 public static void posOrderRecur(Node head) {
 			 if(head == null) {
 				 return;
 			 }
 			 posOrderRecur(head.left);
 			 posOrderRecur(head.right);
-			 System.out.println(head.vlaue);
+			 System.out.print(head.vlaue);
 		 }
 		 /**
 		  * 先序非递归
@@ -51,7 +53,7 @@ public class PreInPosTraversal {
 				stack.push(head);
 				while(!stack.isEmpty()) {
 					head=stack.pop();
-					System.out.println(head.vlaue+" ");
+					System.out.print(head.vlaue+" ");
 					if(head.right != null) {
 					  stack.push(head.right);
 					}
@@ -75,11 +77,35 @@ public class PreInPosTraversal {
 						head = head.left;
 					}else {
 						head=stack.pop();
-						System.out.println(head.vlaue+" ");
+						System.out.print(head.vlaue+" ");
 						head = head.right;
 					}
 				}
 			}
 			System.out.println( );
 		}
+		
+		/*public static int getHeight(Node head,int l) {
+			if(head == null) {
+				return l;
+			}
+			return Math.max(getHeight(head.left,l + 1), getHeight(head.right, l + 1));
+		}*/
+		public static void main(String[] args) {
+			Node head = new Node(5);
+			head.left = new Node(3);
+			head.right = new Node(8);
+			head.left.left = new Node(2);
+			head.left.right = new Node(4);
+			head.left.left.left = new Node(1);
+			head.right.left = new Node(7);
+			head.right.left.left = new Node(6);
+			head.right.right = new Node(10);
+			head.right.right.left = new Node(9);
+			head.right.right.right = new Node(11);
+			preOrderRecur(head);
+			System.out.println(" ");
+			preOrderUnRecur(head);
+		}
+           	
 }
