@@ -1,5 +1,7 @@
 package com.yogaguo.Tree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -41,7 +43,7 @@ public class PreInPosTraversal {
 			 }
 			 posOrderRecur(head.left);
 			 posOrderRecur(head.right);
-			 System.out.print(head.vlaue);
+			 System.out.print(head.vlaue+" ");
 		 }
 		 /**
 		  * 先序非递归
@@ -64,6 +66,24 @@ public class PreInPosTraversal {
 			}
 			System.out.println();
 		}
+		public List<Integer> preorderTraversal(Node root) {
+			List<Integer> res = new ArrayList<>();
+	        if(root != null){
+	            Stack<Node> stack = new Stack<>();
+	            stack.push(root);
+	            while(!stack.isEmpty()){
+	                root = stack.pop();
+	                res.add(root.vlaue);
+	                if(root.right != null){
+	                    stack.push(root.right);
+	                }
+	                 if(root.left != null){
+	                     stack.push(root.left);
+	                 }
+	            }
+	        }
+			 return res;
+	    }    
 		/**
 		 * 二叉树的中序非递归
 		 * @param head
@@ -103,9 +123,10 @@ public class PreInPosTraversal {
 			head.right.right = new Node(10);
 			head.right.right.left = new Node(9);
 			head.right.right.right = new Node(11);
+			//preOrderRecur(head);
 			preOrderRecur(head);
-			System.out.println(" ");
-			preOrderUnRecur(head);
+			//System.out.println(" ");
+			//preOrderUnRecur(head);
 		}
            	
 }
