@@ -48,6 +48,26 @@ public class RemovLastKthNode {
 	  }
 	  return head;
   }
+    public static Node Test(Node head,int k) {
+    	if(head == null || k < 1) {
+    		return head;
+    	}
+    	Node help = new Node(0);
+    	help.next = head;
+    	Node p = help;
+    	Node q = help;
+    	int n = 0;
+    	while(q != null && n != k + 1 ) {
+    		q = q.next;
+    		n++;
+    	}
+    	while( q != null) {
+    		p = p.next;
+    		q = q.next;
+    	}
+    	p.next = p.next.next;
+    	return help.next;
+    }
   /**
    * 双向链表的删除
    * @param head
@@ -85,7 +105,8 @@ public class RemovLastKthNode {
 	head.next.next = new Node(2);
 	head.next.next.next = new Node(9);
 	head.next.next.next.next = new Node(7);
-	head=removeLastKthNode(head, 2);
+	//head=removeLastKthNode(head, 5);
+	head=Test(head, 2);
 	while(head != null) {
 		System.out.print(head.value+" ");
 		head=head.next;

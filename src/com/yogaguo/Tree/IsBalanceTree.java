@@ -41,6 +41,8 @@ public class IsBalanceTree {
 	public static int getDeep(Node head) {
 		return head == null ? 0 : Math.max(getDeep(head.left), getDeep(head.right) + 1);
 	}
+	 
+	 
 	public static void main(String[] args) {
 		Node head = new Node(1);
 		head.left = new Node(2);
@@ -50,6 +52,6 @@ public class IsBalanceTree {
 		head.right.left = new Node(6);
 		head.right.right = new Node(7);
 		System.out.println(isBalance(head));
-		System.out.println(getDeep(head));
+		//System.out.println(getDeep(head));
 	}
 }

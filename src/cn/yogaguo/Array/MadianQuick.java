@@ -8,6 +8,8 @@ package cn.yogaguo.Array;
  *  注意：本题解法不完美，题中要求 "有足够的空间来",但是优先队列都使用的是固定数组。。
  */
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.PriorityQueue;
 
 public class MadianQuick {
